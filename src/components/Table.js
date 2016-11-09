@@ -6,9 +6,6 @@ export default class NewMessageForm extends Component {
     this.state = {
       newMessage: ''
     };
-
-    // this._submit = this._submit.bind(this);
-    // this._changeInput = this._changeInput.bind(this);
   }
 
   _resetGame () {
@@ -24,21 +21,20 @@ export default class NewMessageForm extends Component {
   }
 
   render () {
-    // const { newMessage } = this.state;
     const { table, playerTurn } = this.props;
     console.log('table in Table: ', table);
     console.log('playerTurn in Table: ', playerTurn);
     return (
-      <div>
+      <div className='text-center'>
         <button onClick={this._resetGame.bind(this)}>Reset</button>
+        <h2>{playerTurn ? 'Player 1\'s Turn' : 'Player 2\'s Turn'}</h2>
         <div className='container'>
           {
             Object.keys(table).map((key, i) => {
-            // table.map((box, i) => {
               return (
                 <div className='col-xs-4 box' key={i} onClick={
                   playerTurn ? this._play.bind(this, 0, key) : this._play.bind(this, 1, key)
-                }>{key}</div>
+                }>{table[key]}</div>
               );
             })
           }

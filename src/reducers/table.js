@@ -4,6 +4,8 @@ export default function table (state = [], action) {
       return action.payload;
     case 'RESET_TABLE':
       return action.payload;
+    // case 'MARK_BOX':
+    //   return action.payload;
     default:
       return state;
   }

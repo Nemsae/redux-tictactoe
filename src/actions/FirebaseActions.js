@@ -77,8 +77,7 @@ export function markBox (mark, key) {
   console.log('mark in actions: ', mark, 'key in actions: ', key);
   let keyRef = tableRef.child(key);
   keyRef.set(mark);
-  // return {
-  //   tpe: 'MARK_BOX',
-  //   payload: '?'
-  // };
+  return {
+    type: 'MARK_BOX'
+  };
 }
